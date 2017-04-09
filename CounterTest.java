@@ -99,9 +99,11 @@ class ParallelCounter {
                     }
                 }
                 //System.out.println(counter.value.counter);
-                System.out.println("Lock type " + lockType);
                 System.out.println("numThreads " + numThreads);
                 System.out.println(Statistics.getStdDev(count));
+                System.out.println("-------------------------------------------------");
+                System.out.println("-------------------------------------------------");
+                System.out.println("-------------------------------------------------");
             }
 
         }
