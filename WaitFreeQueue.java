@@ -1,16 +1,25 @@
 class WaitFreeQueue<T> {
-  /**
-   * Add your fields here
-   */
+  private volatile int head = 0;
+  private volatile int tail = 0;
+  private T[] items;
   @SuppressWarnings({"unchecked"})
   public WaitFreeQueue(int capacity) {
-    //TODO: Implement me!
+    items = (T[]) new Object[capacity];
   }
   public void enq(T x) throws FullException {
-    //TODO: Implement me!
+    if (tail - head == items.length) {
+      throw new FullException();
+    }
+    items[tail % items.length] = x;
+    tail++;
   }
   public T deq() throws EmptyException {
-    //TODO: Implement me!
+      if (tail - head == 0) {
+        throw new EmptyException();
+      }
+      T x = items[head % items.length];
+      head++;
+      return x;
   }
 }
 
