@@ -36,11 +36,11 @@ class ParallelCounter {
         int lockType;
         int numThreads;
         int[] threadsOptions = {1, 2, 4, 8, 16, 32};
-        for (int i = 0; i < 5; i++) {
-            if (i == 3) {
+        for (int k = 0; k < 5; k++) {
+            if (k == 3) {
                 continue;
             }
-            lockType = i;
+            lockType = k;
             for (int j = 0; j < threadsOptions.length; j++) {
                 numThreads = threadsOptions[j];
                 PaddedPrimitive<CounterStruct> counter = new PaddedPrimitive<CounterStruct>(new CounterStruct());
@@ -89,10 +89,10 @@ class ParallelCounter {
                 lock.unlock(); // give the workers a chance to see done.value == true
 
                 long[] count = new long[numThreads];
-                for (int k = 0; k < numThreads; k++) {
+                for (int i = 0; i < numThreads; i++) {
                     try {
-                        workerThread[k].join();
-                        count[k] = workerData[k].count; // collect their independent counts
+                        workerThread[i].join();
+                        count[i] = workerData[i].count; // collect their independent counts
                         //System.out.println(count[i]);
                     } catch (InterruptedException ignore) {
                         ;
