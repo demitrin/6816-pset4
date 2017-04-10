@@ -36,7 +36,7 @@ class ParallelCounter {
         int lockType;
         int numThreads;
         int[] threadsOptions = {1, 2, 4, 8, 16, 32};
-        for (int k = 0; k < 5; k++) {
+        for (int k = 5; k < 6; k++) {
             if (k == 3) {
                 continue;
             }
