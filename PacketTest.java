@@ -98,7 +98,7 @@ class ParallelPacket {
         int lockType;
         short strategy;
         int sources[] = {1, 2, 8};
-        long means[] = {25, 100, 400, 800};
+        long means[] = {1000, 2000, 4000, 8000};
         for (int numSources: sources) {
             for (long mean: means) {
                 for (int j = 0; j < 3; j++) {
