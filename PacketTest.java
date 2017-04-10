@@ -100,6 +100,7 @@ class ParallelPacket {
         int sources[] = {1, 2, 8};
         long means[] = {1000, 2000, 4000, 8000};
         for (int numSources: sources) {
+            System.out.println("Num sources " + numSources);
             for (long mean: means) {
                 for (int j = 0; j < 3; j++) {
                     lockType = j;
